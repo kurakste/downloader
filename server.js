@@ -11,12 +11,12 @@ var server = net.createServer(function (socket) {
         const url = data.toString();
         const urlArr = url.split('/');
         const name = urlArr[urlArr.length-1];
-        imgDownloader(url, `public/${name}`, () => console.log('done!'))
+        imgDownloader(url, `public/${name}`)
             .then(res => {
-                console.log('work done!');
+                console.log(res);
             })
             .catch(err => {
-                console.log('error(');
+                console.log('error(', err);
             });
     });
 
